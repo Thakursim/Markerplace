@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_auth.registration.serializers import RegisterSerializer
 from rest_framework.authtoken.models import Token
 
-from .models import Plant
+from .models import Plant, Cart, Order
 
 class CustomerRegistrationSerializer(RegisterSerializer):
     def save(self, request):
@@ -24,3 +24,15 @@ class PlantSerializer(serializers.HyperlinkedModelSerializer):
         model = Plant
         fields = ('id', 'name', 'price', 'image',)
 		
+class CartSerializer(serializers.ModelSerializer):
+	# Modelserializer is use to save the plant_id foreignkey.
+    id = serializers.IntegerField(read_only=True)
+    class Meta:
+         model = Cart
+         fields = ('id', 'plant',)		
+
+# class OrderSerializer(serializers.ModelSerializers):
+    # id = serializers.IntergerField(read_only=True)
+    # class Meta:
+        # model = Order
+        # fields = ('id', 'plants',)		

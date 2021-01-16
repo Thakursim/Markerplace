@@ -6,7 +6,9 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'plant', views.PlantViewSet)
-# router.register(r'buyerdata', views.BuyerDataViewSet)
+router.register(r'cart', views.CartViewSet)
+# router.register(r'order', views.OrderViewSet)
+
 
 
 app_name = 'core'

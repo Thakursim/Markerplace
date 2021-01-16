@@ -15,3 +15,18 @@ class Plant(models.Model):
     
     def __str__(self):
         return self.name
+        
+class Cart(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)  
+    
+    def __str__(self):
+        return str(self.plant)
+        
+class Order(models.Model):
+    plants = models.ManyToManyField(Plant)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.plants)
+    
