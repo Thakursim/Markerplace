@@ -5,7 +5,7 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'plant', views.Plant_tableViewSet)
+router.register(r'plant', views.PlantViewSet)
 # router.register(r'buyerdata', views.BuyerDataViewSet)
 
 

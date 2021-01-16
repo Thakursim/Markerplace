@@ -1,6 +1,6 @@
 from django.contrib import admin
-from core.models import User, Plant_table
+from .models import User, Plant
 # Register your models here.
 
 admin.site.register(User)
-admin.site.register(Plant_table)
+admin.site.register(Plant)

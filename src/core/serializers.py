@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_auth.registration.serializers import RegisterSerializer
 from rest_framework.authtoken.models import Token
 
-from core.models import Plant_table
+from .models import Plant
 
 class CustomerRegistrationSerializer(RegisterSerializer):
     def save(self, request):
@@ -18,7 +18,9 @@ class NurseryRegistrationSerializer(RegisterSerializer):
         user.save()
         return user
 
-class Plant_tableSerializer(serializers.HyperlinkedModelSerializer):
+class PlantSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
-        model = Plant_table
-        fields = ('name', 'price',)
+        model = Plant
+        fields = ('id', 'name', 'price', 'image',)
+		
