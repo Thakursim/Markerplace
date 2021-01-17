@@ -24,9 +24,13 @@ class Cart(models.Model):
         return str(self.plant)
         
 class Order(models.Model):
-    plants = models.ManyToManyField(Plant)
+    plants = models.ManyToManyField(Plant, through='OrderPlant')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.plants)
+        return "Order by user id -" + str(user.id)
+		
+class OrderPlant(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
     

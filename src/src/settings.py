@@ -26,7 +26,7 @@ SECRET_KEY = '0mbn*uu9!x5pfnt4a55%=11x6ee0l-9-v8aqlv=yp^y6(qp4am'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['simran20.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
